@@ -1,0 +1,22 @@
+Intended as a boilerplate gulp environment to be installed into new projects.
+
+run >npm init in the folder that is the root of your project.
+
+Look at the package.json file for a list of dependencies to download using >npm i [dependency] -D
+
+
+The gulpfile.js will 
+
+    *   Compile sass into css, minify the css file and rename it [filename].min.css
+    *   Compile ES6 JS code into backwards compatible JS using Babel, minify it and rename it [filename].min.js
+    *   Create the map source files for easier debugging in the browser and IDE.
+    *   Automatically reload the browser on change or creation of any html, css or js files
+    *   Coming soon... Auto-prefixer......
+
+
+USAGE:
+Use >npm run dev
+to start the system.
+
+The terminal output will show you whats going on and which files are being watched.
+It also provides you with IP addresses so you can test projects on real mobile devices as long as they're connected to the same network.
