@@ -1,1 +1,0 @@
-{"version":3,"file":"../main.css","sources":["main.scss"],"sourcesContent":["$color: lightblue;\r\nbody{\r\n    background-color: darkcyan;\r\n    color: $color;\r\n}\r\n\r\nh1{\r\n    font-size: 46px;\r\n}\r\n"],"names":[],"mappings":"AACA,AAAA,IAAI,CAAA;EACA,gBAAgB,EAAE,QAAQ;EAC1B,KAAK,EAHD,SAAS,GAIhB;;AAED,AAAA,EAAE,CAAA;EACE,SAAS,EAAE,IAAI,GAClB"}

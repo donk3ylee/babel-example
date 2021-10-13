@@ -11,7 +11,7 @@ const rename = require('gulp-rename');
 const path = join(__dirname, 'src');
 
 const compileSCSS = () => {
-    return src(sync(join(path, 'scss', '**/*.scss')))
+    return src(join(path, 'scss', '**/*.scss'))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./maps/'))
@@ -19,7 +19,7 @@ const compileSCSS = () => {
     }
     
 const minifyCSS = () => {
-    return src(sync(join(path, 'dist', '**/!(*.min).css')))
+    return src(join(path, 'dist', '**/!(*.min)*.css'))
     .pipe(cleanCSS({ compatibility: 'ie8'}))
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(sourcemaps.write('./maps/'))
@@ -36,7 +36,7 @@ const minifyCSS = () => {
 }
 
 const compileJS = () => {
-    return src(sync(join(path, 'js', '**/*.js')))
+    return src(join(path, 'js', '**/*.js'))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['@babel/env']
@@ -46,7 +46,7 @@ const compileJS = () => {
 }
 
 const minifyJS = () => {
-    return src(sync(join(path, 'dist', '**/!(*.min).js')))
+    return src(join(path, 'dist', '**/!(*.min)*.js'))
         .pipe(uglify())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('./maps/'))
@@ -63,7 +63,7 @@ const minifyJS = () => {
 }
 
 const watchers = (cb) => {
-    const HTMLfiles = sync(join(path, '**/*.html'));
+    const HTMLfiles = sync(join(path, '**/*.html' ));
     const SCSSfiles = sync(join(path, 'scss', '**/*.scss' ));
     const JSfiles = sync(join(path, 'js', '**/*.js' ));
     
