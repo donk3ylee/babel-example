@@ -1,0 +1,1 @@
+{"version":3,"sources":["log.js"],"names":["console","log"],"mappings":";;AAAAA,OAAO,CAACC,GAAR,CAAY,gBAAZ","sourcesContent":["console.log('getting logged');"],"file":"log.js"}

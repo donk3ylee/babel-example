@@ -14,15 +14,15 @@ const compileSCSS = () => {
     return src(join(path, 'scss', '**/*.scss'))
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write('./maps/'))
-        .pipe(dest(join(path, 'dist')));
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(join(path, 'assets', 'css')));
     }
     
 const minifyCSS = () => {
-    return src(join(path, 'dist', '**/!(*.min)*.css'))
+    return src(join(path, 'assets', '**/!(*.min)*.css'))
     .pipe(cleanCSS({ compatibility: 'ie8'}))
     .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(sourcemaps.write('./maps/'))
+    .pipe(sourcemaps.write('.'))
     .pipe(
         rename(({ dirname , basename, extname }) => {
             return{
@@ -32,7 +32,7 @@ const minifyCSS = () => {
             }
         })
     )
-    .pipe(dest(join(path, 'dist')));
+    .pipe(dest(join(path, 'assets')));
 }
 
 const compileJS = () => {
@@ -41,15 +41,15 @@ const compileJS = () => {
         .pipe(babel({
             presets: ['@babel/env']
         }))
-        .pipe(sourcemaps.write('./maps/'))
-        .pipe(dest(join(path, 'dist')));
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(join(path, 'assets', 'js')));
 }
 
 const minifyJS = () => {
-    return src(join(path, 'dist', '**/!(*.min)*.js'))
+    return src(join(path, 'assets', '**/!(*.min)*.js'))
         .pipe(uglify())
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sourcemaps.write('./maps/'))
+        .pipe(sourcemaps.write('.'))
         .pipe(
             rename(({ dirname , basename, extname }) => {
                 return{
@@ -59,7 +59,7 @@ const minifyJS = () => {
                 }
             })
         )
-        .pipe(dest(join(path, 'dist')));
+        .pipe(dest(join(path, 'assets')));
 }
 
 const watchers = (cb) => {

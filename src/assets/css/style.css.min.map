@@ -1,0 +1,1 @@
+{"version":3,"file":"style.css","sources":["css/style.scss"],"sourcesContent":["$color: pink;\r\nbody{\r\n    background-color: $color;\r\n}"],"names":[],"mappings":"AACA,AAAA,IAAI,CAAA;EACA,gBAAgB,EAFZ,IAAI,GAGX"}
